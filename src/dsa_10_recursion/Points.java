@@ -4,6 +4,32 @@ public class Points {
 
 }
 
+/*
+Recursion is a programming technique where a function calls itself to solve smaller
+instances of a problem.
+
+A base condition in recursion is the stopping rule that prevents infinite calls by
+defining when the function should return without making further recursive calls.
+
+A stack overflow error occurs when too many nested function calls exhaust the call
+stack memory, typically due to infinite or very deep recursion.
+
+A recursion tree is a visual representation of recursive function calls branching
+out like a tree to show how a problem is broken down into subproblems.
+
+
+Leap of faith is the assumption that recursive calls return correct results for
+smaller problems, allowing you to build the solution for the current case.
+
+
+
+
+
+
+Ask ChatGPT
+
+ */
+
 // Recursive problems which have multiple answers, those recursive functions
 // don't return value. Instead in the base condition they:
 // a) store the result in some data structure or

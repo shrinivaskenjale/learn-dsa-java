@@ -1,38 +1,30 @@
 package dsa_00_practice;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
-        boolean val = solve("", 0, "aryan");
-        System.out.println(val);
+        int[] arr = {4, 2, 6, 2, 4, 2, 6, 1};
+        solve(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
-    static boolean solve(String ans, int i, String target) {
-        if (ans.equals(target)) {
-            System.out.println(ans);
-            return true;
-        }
-        if (i == target.length()) {
-            System.out.println(ans);
-            return false;
-        }
+    public static void solve(int[] arr) {
+        int n = arr.length;
 
-        for (int j = 0; j < 26; j++) {
-            char currentChar = (char) ('a' + j);
-
-            boolean found = solve(ans + currentChar, i + 1, target);
-            if (found) {
-                return true;
+        for (int i = 1; i < n; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j--;
             }
-        }
+            arr[j + 1] = key;
 
-        for (int j = 0; j < 10; j++) {
-            String currentChar = String.valueOf(j);
-            boolean found = solve(ans + currentChar, i + 1, target);
-            if (found) {
-                return true;
-            }
         }
-        return false;
     }
 }
+
+/*
+ */

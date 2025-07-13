@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class L10_MergeSort {
     public static void main(String[] args) {
-        int[] arr = { 6, 4, 2, 8, 5, 6, 8, 2 };
+        int[] arr = {6, 4, 2, 8, 5, 6, 8, 2};
         int n = arr.length;
         // sort from 0 to n-1
         mergeSort(arr, 0, n - 1);
@@ -12,73 +12,98 @@ public class L10_MergeSort {
     }
 
     static void mergeSort(int[] arr, int start, int end) {
-        // base case: size of array is 0/1
+        // Base case: Size of array is 0/1
         if (start >= end) {
             return;
         }
 
-        // find mid
+        // Find mid
         int mid = start + (end - start) / 2;
 
-        // sort left half and right half
+        // Sort left half
         mergeSort(arr, start, mid);
+
+        // Sort right half
         mergeSort(arr, mid + 1, end);
 
-        // now merge two sorted halves
+        // Merge two sorted halves
         merge(arr, start, mid, end);
     }
 
     static void merge(int[] arr, int start, int mid, int end) {
-        // first create two arrays representing left and right half
-        int len1 = mid - start + 1;
-        int len2 = end - mid;
+        int[] temp = new int[end - start + 1];
+        int i = start;
+        int j = mid + 1;
+        int k = 0;
 
-        int[] first = new int[len1];
-        int[] second = new int[len2];
-
-        for (int i = 0; i < len1; i++) {
-            first[i] = arr[start + i];
-        }
-
-        for (int j = 0; j < len2; j++) {
-            second[j] = arr[mid + 1 + j];
-        }
-
-        // now merge 2 sorted arrays
-        int i = 0;
-        int j = 0;
-        int k = start;
-
-        while (i < len1 && j < len2) {
-            if (first[i] < second[j]) {
-                arr[k] = first[i];
-                i++;
-                k++;
+        // Merge the two halves into temp[]
+        while (i <= mid && j <= end) {
+            if (arr[i] <= arr[j]) {
+                temp[k++] = arr[i++];
             } else {
-                arr[k] = second[j];
-                j++;
-                k++;
+                temp[k++] = arr[j++];
             }
         }
 
-        while (i < len1) {
-            arr[k] = first[i];
-            i++;
-            k++;
+        // Copy remaining elements from left half, if any
+        while (i <= mid) {
+            temp[k++] = arr[i++];
         }
 
-        while (j < len2) {
-            arr[k] = second[j];
-            j++;
-            k++;
+        // Copy remaining elements from right half, if any
+        while (j <= end) {
+            temp[k++] = arr[j++];
+        }
+
+        // Copy sorted temp[] back to original array
+        for (int p = 0; p < temp.length; p++) {
+            arr[start + p] = temp[p];
         }
     }
 }
 
-// Time complexity: O(nlog(n))
-// Space complexity: O(n)
+/*
 
-// Read this
-// https://www.geeksforgeeks.org/merge-sort/
+Merge sort is a divide-and-conquer algorithm that recursively splits the array into halves,
+sorts them, and then merges the sorted halves.
 
-// See inversion count problem
+Space complexity: O(n)
+
+Time complexity: O(nlog(n))
+
+See inversion count problem
+
+=====================
+Mid calculation
+=====================
+
+❌ int mid = (start + end) / 2;
+If start and end are both large integers (close to Integer.MAX_VALUE), then their sum
+start + end could exceed the maximum value an int can hold, causing an overflow and
+resulting in incorrect behavior.
+
+✅ int mid = start + (end - start) / 2;
+This ensures that the values stay within the valid int range.
+
+=====================
+Merge Algorithm
+=====================
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+
+
+1. Create temp array to hold merged result.
+
+2. Use two pointers: one for each subarray (i = left, j = mid + 1).
+
+3. Compare elements at both pointers:
+Copy the smaller one into temp[].
+Move that pointer forward.
+
+4. Copy remaining elements from left or right subarray (if any).
+
+5. Copy temp[] back into the original array at the correct position.
+
+
+ */
