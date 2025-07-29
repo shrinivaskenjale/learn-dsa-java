@@ -76,7 +76,7 @@ public class L01_FrequencyArray {
         // Unicode characters
         // ====================
 
-        // Use a Map<Character, Integer> instead, because Unicode range is very large.
+        // Use Map<Character, Integer> instead, because Unicode range is very large.
 
     }
 }

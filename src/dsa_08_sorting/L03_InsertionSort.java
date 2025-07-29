@@ -16,16 +16,14 @@ public class L03_InsertionSort {
         int n = arr.length;
 
         for (int i = 1; i < n; i++) {
-            int key = arr[i]; // Element to insert
+            int key = arr[i];
             int j = i - 1;
 
-            // Shift elements of arr[0..i-1] greater than key to the right
             while (j >= 0 && arr[j] > key) {
                 arr[j + 1] = arr[j];
                 j--;
             }
 
-            // Insert key in its correct position
             arr[j + 1] = key;
         }
     }
@@ -33,6 +31,8 @@ public class L03_InsertionSort {
 }
 
 /*
+https://www.geeksforgeeks.org/dsa/insertion-sort-algorithm/
+
 Insertion Sort is named so because it builds the sorted array one element at a time by
 inserting each element into its correct position.
 
@@ -46,11 +46,12 @@ It is an in-place sorting algorithm.
 Insertion sort makes n-1 passes for an array of size n, as it starts inserting from the
 second element onward.
 
-Space complexity: O(1)
-
 Time complexity: O(n^2)
 Best case = O(n) ...sorted (at least 1 comparison is performed for each element)
 Worst case = O(n^2) ...reverse sorted
+
+Space complexity: O(1)
+
 
 Applications:
 1. When size of array is small.

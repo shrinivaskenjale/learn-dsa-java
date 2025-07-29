@@ -16,18 +16,15 @@ public class L01_SelectionSort {
     public static void selectionSort(int[] arr) {
         int n = arr.length;
 
-        // One by one move boundary of unsorted subarray
         for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
 
-            // Find the minimum element in the unsorted part
             for (int j = i + 1; j < n; j++) {
                 if (arr[j] < arr[minIndex]) {
                     minIndex = j;
                 }
             }
 
-            // Swap the found minimum element with the current position
             if (minIndex != i) {
                 int temp = arr[i];
                 arr[i] = arr[minIndex];
@@ -39,6 +36,8 @@ public class L01_SelectionSort {
 }
 
 /*
+https://www.geeksforgeeks.org/dsa/selection-sort-algorithm-2/
+
 Selection Sort is named so because it repeatedly selects the smallest (or largest)
 element from the unsorted part and places it in the correct position.
 
@@ -55,11 +54,11 @@ It is an in-place sorting algorithm.
 Selection sort performs n-1 passes for an array of size n, since the last element
 automatically falls into place after sorting the first n-1 elements.
 
-Space complexity: O(1)
-
 Time complexity: O(n^2)
 Best case: O(n^2) ...sorted
 Worst case: O(n^2) ...reverse sorted
+
+Space complexity: O(1)
 
 Applications:
 1. When size of array is small.

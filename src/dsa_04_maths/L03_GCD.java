@@ -65,5 +65,6 @@ gcd(48, 18)
 → GCD is 6
 
 Time complexity: O(log min(a, b))
+- If a loop repeatedly divides, halves, or reduces a number significantly, it's usually O(log n).
 
  */

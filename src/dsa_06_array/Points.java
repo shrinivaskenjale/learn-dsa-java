@@ -4,6 +4,20 @@ public class Points {
 
 }
 
+/*
+An array is a fixed-size, ordered collection of elements of the same type stored in
+contiguous memory locations.
+
+In Java, the maximum size of an array is Integer.MAX_VALUE (i.e., 2,147,483,647), but
+practically it's slightly less due to JVM overhead and available memory.
+
+A subarray is a contiguous part of an array that maintains the original order of elements.
+
+A subsequence is a sequence derived from an array by deleting zero or more elements without changing the order of the remaining elements.
+
+
+ */
+
 // Before coding the solution, make your own all possible test cases.
 
 // When declaring array, don't put variable in place of size. Use the size given

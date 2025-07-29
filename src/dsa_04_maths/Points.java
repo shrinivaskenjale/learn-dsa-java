@@ -10,12 +10,12 @@ Prime number
 
 https://www.geeksforgeeks.org/prime-numbers/
 
-A prime number is a natural number greater than 1 that is not a product of
-two smaller natural numbers.
+A prime number is a natural number greater than 1 that is not a product of two smaller
+natural numbers.
 
 Prime number can be divided exactly only by itself and 1.
 
-if n is divisible by any number between [2,n), then it is not prime.
+If n is divisible by any number between [2,n), then it is not prime.
 
 ==================================================
 Composite number

@@ -40,31 +40,89 @@ public class L07_RotateArray {
     }
 }
 
-// Right rotate array k times => put last k items in the beginning
-// Left rotate array k times => put first k items in the last
+/*
+Right rotate array k times => put last k items in the beginning
+Left rotate array k times => put first k items in the last
 
-// Basic approach 1:
-// E.g., right rotate k times
-// For k times perform rotate right operation:
-// 1. store last item in temporary variable
-// 2. shift all other items to right one place
-// 3. put temporary value in first place
+===============
+Brute Force
+===============
 
-// Basic approach 2:
-// create new array of same size
-// iterate over original array
-// place current item in (i+k)%n index in new array
+Right rotate k times:
+1. For k times:
+    a. Store the last element of the array in a temporary variable.
+    b. Shift all other elements one position to the right (from end to start).
+    c. Place the stored temporary value at index 0.
 
-// Optimized approach: Reversal Algo.
+Left rotate k times:
+1. For each of the k rotations:
+    a. Store the first element of the array in a temporary variable.
+    b. Shift all other elements one position to the left (from start to end).
+    c. Place the stored temporary value at the last index.
 
-// A. Right rotate k times:
-// 1. reverse last k items
-// 2. reverse rest of the items
-// 3. reverse whole array
+Time Complexity: O(k × n)
+- Each rotation takes O(n) time due to shifting.
+- Repeating it k times results in O(k × n).
 
-// B. Left rotate k times:
-// 1. reverse first k items
-// 2. reverse rest of the items
-// 3. reverse whole array
+Space Complexity: O(1)
+- No extra space used except a temporary variable.
 
-// if k>=n => k=k%n
+=========
+Better
+=========
+
+Right rotate k times:
+1. Create a new array `temp` of the same size as the input array.
+2. For each index i in the input array:
+   - Place arr[i] at index (i + k) % n in the temp array.
+3. Copy all elements from temp back to arr.
+
+Left rotate k times:
+1. Create a temporary array `temp` of the same size as the input.
+2. For each index i in the input array:
+   - Place arr[i] at index (i - k + n) % n in temp array.
+     (we add 'n' to avoid negative indexing)
+3. Copy all elements from temp back to arr.
+
+Time Complexity: O(n)
+- Each element is moved exactly once.
+
+Space Complexity: O(n)
+- Extra array used to store rotated version.
+
+
+=============
+Optimal
+=============
+
+Reversal Algorithm for Array Rotation
+
+Right rotate k times:
+1. Let n be the length of the array
+2. If k > n, k = k % n
+3. Reverse the last k elements
+4. Reverse the remaining first (n - k) elements
+5. Reverse the entire array
+
+Left rotate k times:
+1. Let n be the length of the array
+2. If k > n, k = k % n
+3. Reverse the first k elements
+4. Reverse the remaining last (n - k) elements
+5. Reverse the entire array
+
+
+
+Time Complexity: O(n)
+- Each reverse operation is O(n), done at most 3 times.
+
+Space Complexity: O(1)
+- All operations are in-place.
+
+ */
+
+
+
+
+
+

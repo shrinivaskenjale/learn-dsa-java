@@ -15,7 +15,7 @@ Use a Frequency Array when:
 Example: integers from 0 to 1000, or characters like 'a' to 'z'
 
 2. Key range is known and small
-You know the max value (max) and it’s not too large (e.g., less than 1 million)
+You know the max value (max) and it’s not too large.
 If your max index is ≤ 10⁷, frequency arrays are fine.
 
 3. Performance is critical (O(1) access)

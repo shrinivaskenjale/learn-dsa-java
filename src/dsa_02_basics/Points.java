@@ -38,11 +38,12 @@ Operator tricks
 
 (n % 10) returns the last digit of an integer.
 
-(n // 10) returns the integer after removing its last digit.
+(n / 10) returns the integer after removing its last digit.
 
 (n >> 1) is equivalent to (n / 2) for positive integers, but it's more efficient.
 
-(n << 1) is equivalent to (n * 2) for both positive and negative integers, but it's more efficient.
+(n << 1) is equivalent to (n * 2) for both positive and negative integers, but it's
+more efficient.
 
 To toggle a value of variable between 0 and 1, you can use the expression:
 => 1-x
@@ -51,9 +52,14 @@ To toggle a value of variable between 0 and 1, you can use the expression:
 (n & 1) and (n % 2) both return 1 if n is odd, and 0 if n is even.
 (n & 1) is more efficient.
 
-(n & 1) returns the last bit (the least significant bit) of the binary representation of an integer.
+(n & 1) returns the last bit (the least significant bit) of the binary representation
+of an integer.
 
 (n >>> 1) removes the last bit of the binary representation and fills a 0 on the left.
+
+n ^ n = 0
+
+n ^ 0 = n
 
 =========================
 Number ranges
@@ -94,8 +100,7 @@ Min/Max between 2 or more variables
 Modulo operator with negative numbers
 ========================================
 
-https://stackoverflow.com/questions/4412179/best-way-to-make-javas-modulus-behave-like-it-should-with-negative
--numbers/4412200#4412200
+https://stackoverflow.com/questions/4412179/best-way-to-make-javas-modulus-behave-like-it-should-with-negative-numbers/4412200#4412200
 
 
 

@@ -9,7 +9,6 @@ public class L02_LinearSearch {
 
     }
 
-    // linear search
     static int linearSearch(int[] arr, int key) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == key) {
@@ -19,3 +18,14 @@ public class L02_LinearSearch {
         return -1;
     }
 }
+
+/*
+
+Linear search is a simple algorithm that checks each element in a list one by one until
+the target element is found or the list ends.
+
+Time complexity: O(n)
+
+Time complexity: O(1)
+
+ */
