@@ -12,6 +12,7 @@ public class L22_BestTimeToBuySellStock {
 
         for (int price : prices) {
             if (price < minPrice) {
+                // We will not sell if today's price is lowest so far.
                 minPrice = price; // update the lowest price
             } else {
                 int profit = price - minPrice; // calculate profit if sold today
@@ -49,6 +50,9 @@ Explanation: No profitable transaction possible.
 Brute Force
 ====================
 
+Intuition:
+Try out all possible combinations of buy day and sell day.
+
 1. Initialize maxProfit = 0.
 2. Loop through each day i (buy day):
    a. Loop through each day j > i (sell day):
@@ -75,8 +79,10 @@ Optimal
 Kadane-like logic
 
 Intuition:
-Track the lowest price so far and calculate how much profit you’d make if you sold
-today — keep the highest one.
+- Track the lowest price so far and calculate how much profit you’d make if you sold today.
+- Keep track of highest profit.
+- If we want to sell the stock on current day with maximum profit, we should have bought
+the stock when the stock price was lowest in past days.
 
 1. Initialize:
    - minPrice = maximum possible value (to track lowest buying price so far)
